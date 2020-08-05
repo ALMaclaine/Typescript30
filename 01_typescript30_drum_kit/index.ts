@@ -5,7 +5,7 @@ function removeTransition(e: TransitionEvent) {
     }
 }
 
-function playSound(e) {
+function playSound(e: KeyboardEvent) {
     const audio: HTMLAudioElement = document.querySelector(`audio[data-key="${e.keyCode}"]`) ;
     const key: HTMLDivElement = document.querySelector(`div[data-key="${e.keyCode}"]`);
     if (!audio) return;
@@ -17,5 +17,5 @@ function playSound(e) {
 }
 
 const keys: NodeListOf<HTMLDivElement> = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+keys.forEach((key: HTMLDivElement) => key.addEventListener('transitionend', removeTransition));
 window.addEventListener('keydown', playSound);
