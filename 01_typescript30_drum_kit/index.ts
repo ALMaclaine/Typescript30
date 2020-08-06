@@ -1,11 +1,11 @@
-function removeTransition(e: TransitionEvent) {
+function removeTransition(e: TransitionEvent): void {
     if (e.propertyName !== 'transform') return;
     if(e.target instanceof HTMLDivElement) {
         e.target.classList.remove('playing');
     }
 }
 
-function playSound(e: KeyboardEvent) {
+function playSound(e: KeyboardEvent): void {
     const audio: HTMLAudioElement = document.querySelector(`audio[data-key="${e.keyCode}"]`) ;
     const key: HTMLDivElement = document.querySelector(`div[data-key="${e.keyCode}"]`);
     if (!audio) return;
