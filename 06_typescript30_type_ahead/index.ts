@@ -23,8 +23,8 @@ function findMatches(wordToMatch: string, cities: Cities): Cities {
         const regex: RegExp = new RegExp(wordToMatch, 'gi');
         const cityMatch = place.city.match(regex);
         const stateMatch = place.state.match(regex);
-        return cityMatch && cityMatch.length !== 0
-            || stateMatch && stateMatch.length !== 0;
+        return cityMatch !== null && cityMatch.length !== 0
+            || stateMatch !== null && stateMatch.length !== 0;
     });
 }
 
